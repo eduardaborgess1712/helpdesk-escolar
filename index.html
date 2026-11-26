@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +8,13 @@
 </head>
 <body>
     <header class="topo">
-            <div class="topo">
-               <span class="topo-conteudo"></span>
-               <nav class="topo-nav">
-                    <a href="index.html" class="ativo">Abrir chamado</a>
-                    <a href="chamados.html">Ver chamados</a>
-               </nav>
-            </div>
+        <div class="topo-conteudo">
+            <span class="topo-marca">HelpDesk Escolar</span>
+            <nav class="topo-nav">
+                <a href="index.html" class="ativo">Abrir chamado</a>
+                <a href="chamados.html">Ver chamados</a>
+            </nav>
+        </div>
     </header>
 
     <main class="conteudo">
@@ -23,28 +23,52 @@
             <p class="subtitulo">Descreva o problema encontrado na escola. A equipe responsável vai analisar e atualizar o status.</p>
 
             <form id="form-chamado" novalidate>
-                <div class="campo">
-                    <label for="setor">Nome do solicitante</label>
-                    <input type="text" id="setor" name="setor" placeholder="EX: Sala 12, Laboratório 2, Secretaria" required>
+                <div class="campo-duplo">
+                    <div class="campo">
+                        <label for="nome">Nome do solicitante</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: Prof. Maria Silva" required>
+                    </div>
+                    <div class="campo">
+                        <label for="setor">Setor / Local</label>
+                        <input type="text" id="setor" name="setor" placeholder="Ex: Sala 12, Laboratório 2" required>
+                    </div>
+                </div>
+
+                <div class="campo-duplo">
+                    <div class="campo">
+                        <label for="categoria">Categoria</label>
+                        <select name="categoria" id="categoria" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="Hardware / Computadores">Hardware / Computadores</option>
+                            <option value="Internet / Rede">Internet / Rede</option>
+                            <option value="Projetor / Multimídia">Projetor / Multimídia</option>
+                            <option value="Software / Sistemas">Software / Sistemas</option>
+                            <option value="Infraestrutura / Outros">Infraestrutura / Outros</option>
+                        </select>
+                    </div>
                     <div class="campo">
                         <label for="prioridade">Prioridade</label>
                         <select name="prioridade" id="prioridade" required>
-                            <option value="" disable selected>Selecione</option>
+                            <option value="" disabled selected>Selecione</option>
                             <option value="Baixa">Baixa</option>
                             <option value="Média">Média</option>
                             <option value="Alta">Alta</option>
                         </select>
                     </div>
-                    <div class="campo">
-                        <label for="descricao">descricao do problema</label>
-                        <textarea id="descricao" name="descricao" rows="4" placeholder="Explique com detalhes o que está acontecendo" required ></textarea>
-                    </div>
-                    <button type="submit" class="botao-principal">Registrar chamado</button>
-                    
-                    <p id="mensagem-status" class="mensagem-status" role="status" aria-live="polite"></p>
+                </div>
+
+                <div class="campo">
+                    <label for="descricao">Descrição do problema</label>
+                    <textarea id="descricao" name="descricao" rows="4" placeholder="Explique com detalhes o que está acontecendo" required></textarea>
+                </div>
+
+                <button type="submit" class="botao-principal">Registrar chamado</button>
+                
+                <p id="mensagem-status" class="mensagem-status" role="status" aria-live="polite"></p>
             </form>
         </div>
     </main>
+
     <script src="storage.js"></script>
     <script src="app.js"></script>
 </body>
